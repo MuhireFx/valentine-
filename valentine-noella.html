@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Noella ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: white;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+.container {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4f81;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.card {
+    display: none;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    max-width: 400px;
+    animation: fadeIn 2s ease forwards;
+    color: #555;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4f81;
+}
+
+.footer {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ff4f81;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="intro">
+    <h1>Noella ❤️</h1>
+    <p>I have something special for you...</p>
+    <button class="button" onclick="openSurprise()">Click to Open Your Surprise</button>
+</div>
+
+<div class="card" id="message">
+    <h1>Happy Valentine’s Day, Noella</h1>
+    <p>
+        Even though I couldn’t come see you today,  
+        my heart is right there with you.  
+        You are my peace, my motivation,  
+        and the person I’m building my future with.  
+        Distance doesn’t reduce what I feel for you.  
+        I’m yours completely.
+    </p>
+    <div class="footer">
+        I love you, Noella.
+    </div>
+</div>
+
+<audio id="music">
+    <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Floating hearts generator
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 300);
+
+// Surprise open
+function openSurprise() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("message").style.display = "block";
+
+    var music = document.getElementById("music");
+    music.volume = 0.3;
+    music.play();
+}
+</script>
+
+</body>
+</html>
